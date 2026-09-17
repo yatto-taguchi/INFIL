@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story - なぜ私たちは3Dプリンタでオリジナル製品を作るのか | LittDesign</title>
+  <meta name="description" content="LittDesign合同会社が3Dプリンタによるオリジナル製品開発に至った背景とクラフトマンシップの哲学。大量生産にはない幾何学造形の美とPLA素材へのこだわり。" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Story Page Editorial Styles */
+    .story-hero {
+      padding: 90px 0 60px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 10%, rgba(243, 244, 246, 0.8) 0%, rgba(255, 255, 255, 1) 70%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .story-hero-subtitle {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .story-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .story-lead-container {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+    .story-article {
+      max-width: 780px;
+      margin: 60px auto 100px;
+      padding: 0 24px;
+    }
+    .story-section {
+      margin-bottom: 72px;
+    }
+    .story-heading {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .story-paragraph {
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .story-image-full {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 36px 0;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+    }
+    .story-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .story-image-caption {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 8px;
+    }
+    .story-quote-card {
+      background: var(--bg-secondary);
+      border-left: 3px solid var(--text-primary);
+      padding: 24px 28px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 36px 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .story-profile-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    .profile-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="お知らせ">
+    <span>全国一律送料 ¥500 / ¥10,000以上のご注文で<strong>送料無料</strong></span>
+    <span class="badge">安心発送</span>
+    <span>ご注文確認後、7営業日以内に丁寧に発送いたします</span>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap" title="LittDesign ホームへ">
+        <img src="assets/images/logo.svg" alt="LittDesign ロゴ" class="brand-logo-img" />
+      </a>
+      <nav aria-label="メインメニュー">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">商品一覧</a></li>
+          <li><a href="story.html" class="nav-link active">ブランドストーリー</a></li>
+          <li><a href="index.html#craftHighlights" class="nav-link">PLA素材について</a></li>
+          <li><a href="legal.html" class="nav-link">特定商取引法表記</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html#productsCatalog" class="btn-primary" style="padding: 9px 20px; font-size: 0.88rem;">
+          ショップへ戻る
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Story Hero -->
+  <section class="story-hero">
+    <div class="container">
+      <div class="story-hero-subtitle">Brand Story &amp; Philosophy</div>
+      <h1 class="story-hero-title">
+        なぜ私たちは、3Dプリンタで<br />
+        オリジナル製品を作るのか。
+      </h1>
+      <div class="story-lead-container">
+        金型で作られる既製品が溢れるこの時代に、なぜあえて時間をかけて1層ずつ樹脂を積み上げるのか。<br />
+        LittDesignが目指すのは、デジタル技術とクラフトマンシップが融合した「新しい手触りと造形美」です。
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Article Body -->
+  <article class="story-article">
+    <section class="story-section">
+      <h2 class="story-heading">1. 大量生産の均一化に対する違和感から</h2>
+      <p class="story-paragraph">
+        私たちが暮らす現代社会は、プラスチックの射出成型による「安価で大量の工業製品」に囲まれています。それらは便利で手頃な反面、金型から抜くための制約（テーパー角やアンダーカットの回避）によって、デザインの自由度が制限され、どこか似通った形状になりがちです。
+      </p>
+      <p class="story-paragraph">
+        「もっと複雑で、自然界のように有機的で、見る角度によってまったく異なる表情を見せる造形は作れないだろうか？」<br />
+        この純粋な問いが、私たちの3Dプリントプロダクト開発の出発点でした。
+      </p>
+
+      <div class="story-image-full">
+        <img src="assets/images/hero-craft.jpg" alt="高精度3DプリンタのノズルからPLAが押し出される瞬間" />
+      </div>
+      <div class="story-image-caption">0.12mm〜0.20mmのピッチで樹脂を積み重ねるFDM方式3Dプリンタの造形プロセス</div>
+    </section>
+
+    <section class="story-section">
+      <h2 class="story-heading">2. 数学的な美学を、物理的な空間へ</h2>
+      <p class="story-paragraph">
+        3Dプリンタの最大の魅力は、従来の切削や金型では物理的に製造不可能だった「内部中空構造」「ボロノイ分割幾何学」「ねじれを伴うスパイラル曲面」を、PC上の数式とCADデータからダイレクトに実体化できる点にあります。
+      </p>
+      <p class="story-paragraph">
+        たとえば、LittDesignのプランターやキャンドルホルダーは、複雑なファセット（面）が光を不均一に反射するように緻密に計算されています。窓辺に差し込む朝の光、夕暮れ時の淡い影、そして夜のキャンドルのゆらぎ。時間の経過とともに陰影が刻々と移ろう姿は、部屋の中に小さなアートピースのような静けさをもたらします。
+      </p>
+
+      <div class="story-quote-card">
+        「機械が作っているのに、どこか陶芸や木彫のような温かみとクラフト感がある。それが私たちの目指す3Dプリントの地平です。」
+      </div>
+    </section>
+
+    <section class="story-section">
+      <h2 class="story-heading">3. 植物由来の「バイオPLA素材」を選ぶ理由</h2>
+      <p class="story-paragraph">
+        私たちが主要素材として採用している「PLA（ポリ乳酸）」は、石油由来ではなく、トウモロコシやサトウキビのデンプンを発酵させて作られる環境調和型のバイオプラスチックです。
+      </p>
+      <p class="story-paragraph">
+        熱溶解積層（FDM）によって生まれる微細な積層痕（レイヤーライン）は、マットなPLA樹脂と組み合わさることで、まるで白磁や和紙、焼き物のような独自のシルキーなテクスチャを生み出します。<br />
+        耐熱温度が約55℃という熱に敏感な特性はありますが、室内のインテリアやステーショナリーとして寄り添うには十分な強度と、環境への優しさを兼ね備えています。
+      </p>
+
+      <div class="story-image-full">
+        <img src="assets/images/item-planter-3.jpg" alt="PLA素材の表面に現れる繊細な積層ラインの拡大" />
+      </div>
+      <div class="story-image-caption">0.16mmの積層ラインが光を捉え、しっとりとしたマットな陰影を生み出す</div>
+    </section>
+
+    <section class="story-section">
+      <h2 class="story-heading">4. 岡山県津山市から、必要な分だけを丁寧に</h2>
+      <p class="story-paragraph">
+        LittDesignは、岡山県津山市に工房を構えています。巨大な工場で何万個も作り置きして余れば廃棄するような製造スタイルとは一線を画し、1つの製品に十数時間を費やし、自らの目でクオリティを確かめた「在庫のある数量」だけを皆様にお届けしています。
+      </p>
+      <p class="story-paragraph">
+        手にとっていただいた瞬間に、「あ、これは市販のプラスチックとは全く違う」と感じていただけるようなプロダクトを、これからも探求し続けてまいります。
+      </p>
+
+      <!-- Founder Profile Card -->
+      <div class="story-profile-card">
+        <div class="profile-avatar">LD</div>
+        <div>
+          <div style="font-size:0.8rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">Brand Creator</div>
+          <div style="font-family:var(--font-heading); font-size:1.25rem; font-weight:700; color:var(--text-primary); margin:2px 0 6px;">田口 隼人 / Hayato Taguchi</div>
+          <p style="font-size:0.86rem; color:var(--text-secondary); line-height:1.6; margin:0;">
+            LittDesign合同会社 代表。3D CAD設計とFDM積層技術を融合させたオリジナル幾何学オブジェクトの企画・設計・製造を一貫して手掛ける。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Store CTA -->
+    <div style="text-align: center; margin-top: 60px;">
+      <a href="index.html#productsCatalog" class="btn-primary" style="padding: 16px 36px;">
+        <span>製品コレクションを見る</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding:0; justify-content:center; text-align:center;">
+        <div>&copy; 2026 LittDesign LLC. All rights reserved. Crafted in Tsuyama, Okayama.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
