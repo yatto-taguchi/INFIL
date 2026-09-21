@@ -138,17 +138,17 @@ const FALLBACK_PRODUCTS = [
     ],
     "images": [
       {
-        "url": "assets/images/item-short-stand-1.jpg?v=1",
+        "url": "assets/images/item-short-stand-1.jpg?v=5",
         "label": "正面・パースペクティブビュー",
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-short-stand-2.jpg?v=4",
+        "url": "assets/images/item-short-stand-2.jpg?v=5",
         "label": "ロッド収納イメージ（グリーン×5・バイオレット×5・ホワイト×5）",
         "angle": "With Rods"
       },
       {
-        "url": "assets/images/item-short-stand-3.jpg?v=1",
+        "url": "assets/images/item-short-stand-3.jpg?v=5",
         "label": "上面・径別3列マトリクス配置",
         "angle": "Top Grid"
       },
