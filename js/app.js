@@ -151,11 +151,6 @@ const FALLBACK_PRODUCTS = [
         "url": "assets/images/item-short-stand-3.jpg?v=5",
         "label": "上面・径別3列マトリクス配置",
         "angle": "Top Grid"
-      },
-      {
-        "url": "assets/images/item-short-stand-4.jpg?v=1",
-        "label": "実物スタジオフォト",
-        "angle": "Real Shot"
       }
     ],
     "video": {
