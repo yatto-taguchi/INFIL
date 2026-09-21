@@ -143,7 +143,7 @@ const FALLBACK_PRODUCTS = [
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-short-stand-2.jpg?v=3",
+        "url": "assets/images/item-short-stand-2.jpg?v=4",
         "label": "ロッド収納イメージ（グリーン×5・バイオレット×5・ホワイト×5）",
         "angle": "With Rods"
       },
