@@ -37,7 +37,7 @@ const FALLBACK_PRODUCTS = [
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-matrix-2.jpg?v=6",
+        "url": "assets/images/item-matrix-2.jpg?v=7",
         "label": "ロッド収納イメージ（オレンジのロング×15本）",
         "angle": "With Rods"
       },
