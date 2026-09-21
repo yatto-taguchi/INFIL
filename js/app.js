@@ -45,11 +45,6 @@ const FALLBACK_PRODUCTS = [
         "url": "assets/images/item-matrix-3.jpg?v=3",
         "label": "上面・幾何学マトリクス配置",
         "angle": "Top Matrix"
-      },
-      {
-        "url": "assets/images/item-matrix-4.jpg",
-        "label": "実物スタジオフォト",
-        "angle": "Real Shot"
       }
     ],
     "video": {
