@@ -37,9 +37,9 @@ const FALLBACK_PRODUCTS = [
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-matrix-2.jpg",
-        "label": "サロン・ワークスペース使用シーン",
-        "angle": "Lifestyle Scene"
+        "url": "assets/images/item-matrix-2.jpg?v=5",
+        "label": "ロッド収納イメージ（オレンジのロング×15本）",
+        "angle": "With Rods"
       },
       {
         "url": "assets/images/item-matrix-3.jpg?v=3",
