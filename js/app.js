@@ -143,7 +143,7 @@ const FALLBACK_PRODUCTS = [
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-short-stand-2.jpg?v=1",
+        "url": "assets/images/item-short-stand-2.jpg?v=2",
         "label": "サロン使用シーン（グリーン×5・バイオレット×5・ホワイト×5）",
         "angle": "Salon Scene"
       },
