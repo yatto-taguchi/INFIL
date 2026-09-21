@@ -1,174 +1,160 @@
-﻿[
+[
   {
-    "id": "ld-001",
-    "name": "幾何学ウェーブ プランター",
-    "subtitle": "Geometric Wave Planter Vase",
-    "category": "interior",
-    "categoryName": "インテリア・花器",
-    "price": 3800,
-    "stock": 5,
+    "id": "ld-005",
+    "name": "オールパーパス用ロッド立て",
+    "subtitle": "オレンジのロング対応",
+    "category": "winding-rod",
+    "categoryName": "ワインディング・ロッド",
+    "price": 3600,
+    "stock": 0,
+    "status": "preparing",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
     "printSpecs": {
       "layerHeight": "0.16mm 高精細積層",
-      "printTime": "約11時間40分",
-      "dimensions": "幅 110mm × 奥行 110mm × 高さ 165mm",
-      "weight": "約 195g",
-      "heatResistance": "耐熱温度 55℃（食洗機・熱湯不可）"
-    },
-    "description": "数式に基づいた有機的なスパイラル幾何学を描く、LittDesignのシグネチャーモデル。FDM方式3Dプリンタならではの連続する層の重なりが、外光によって豊かな陰影を生み出します。多肉植物や観葉植物のポットとしてはもちろん、オブジェとしても空間にモダンな静けさをもたらします。",
-    "features": [
-      "底面水抜き穴＆専用ドリップトレイ設計",
-      "光の入射角によって表情を変えるスパイラルリブ構造",
-      "トウモロコシ由来の環境調和型バイオPLA素材採用"
-    ],
-    "images": [
-      {
-        "url": "assets/images/item-planter-1.jpg",
-        "label": "正面全体ビュー",
-        "angle": "Front View"
-      },
-      {
-        "url": "assets/images/item-planter-2.jpg",
-        "label": "上面・幾何学開口アングル",
-        "angle": "Top-down Spiral"
-      },
-      {
-        "url": "assets/images/item-planter-3.jpg",
-        "label": "積層痕ディテール（0.16mmピッチ）",
-        "angle": "Layer Detail"
-      }
-    ],
-    "video": {
-      "type": "timelapse",
-      "title": "3Dプリント造形タイムラプス（Core-XY高速積層）",
-      "preview": "assets/images/hero-craft.jpg"
-    }
-  },
-  {
-    "id": "ld-002",
-    "name": "アーチ型マグネット デスクオーガナイザー",
-    "subtitle": "Arch Magnetic Desk Organizer & Stand",
-    "category": "stationery",
-    "categoryName": "ステーショナリー",
-    "price": 4200,
-    "stock": 2,
-    "featured": true,
-    "color": "Sand Beige（サンドベージュ）",
-    "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
-    "printSpecs": {
-      "layerHeight": "0.18mm 高密度積層",
-      "printTime": "約9時間15分",
-      "dimensions": "幅 155mm × 奥行 85mm × 高さ 90mm",
-      "weight": "約 160g",
+      "printTime": "約8時間40分",
+      "dimensions": "幅 120mm × 奥行 65mm × 高さ 55mm",
+      "weight": "約 145g",
       "heatResistance": "耐熱温度 55℃（直射日光・車内放置厳禁）"
     },
-    "description": "クラシック建築の連続アーチ構造に着想を得たデスクトップオーガナイザー。スマートフォンやタブレットを最適な角度でホールドしながら、手前にはお気に入りの筆記具を美しく整列させます。デスク上をミニマルに整理し、作業効率と視覚的な調和を高めます。",
+    "description": "国家試験やサロンワークの基本となる「オールパーパス」技法に最適化された専用ロッドスタンド。使用頻度の高い「オレンジのロング」ロッドの径・深さに合わせてホール設計を最適化しました。ロッドが倒れず垂直にキープされるため、ワインディング作業中の手返しと施術スピードが向上します。0.16mmピッチの微細な積層痕が陶器のようなマットな質感を醸し出し、ワゴンやカウンターを端正に整えます。",
     "features": [
-      "各種スマートフォン（厚み13mmまで・ケース装着可）対応スタンド",
-      "筆記具用リブ溝 ＆ メモ・名刺立てアーチスリット",
-      "デスクを傷つけないシリコンクッション底面付属"
+      "オレンジのロングロッドに最適化された15ホール専用設計",
+      "施術中の抜き差しがスムーズで倒れにくい低重心ブロック構造",
+      "トウモロコシ由来の環境調和型バイオPLA素材 ＆ 0.16mm高密度FDM積層"
     ],
     "images": [
       {
-        "url": "assets/images/item-organizer-1.jpg",
-        "label": "正面・実使用シーン",
-        "angle": "Perspective View"
-      },
-      {
-        "url": "assets/images/item-organizer-2.jpg",
-        "label": "サイドアーチ構造アングル",
-        "angle": "Side Arch"
-      }
-    ],
-    "video": {
-      "type": "timelapse",
-      "title": "連続アーチのブリッジ造形プロセス",
-      "preview": "assets/images/hero-craft.jpg"
-    }
-  },
-  {
-    "id": "ld-003",
-    "name": "ボロノイ幾何学 ヘッドホンスタンド",
-    "subtitle": "Voronoi Acoustic Headphone Stand",
-    "category": "gadget",
-    "categoryName": "ガジェット・オーディオ",
-    "price": 6800,
-    "stock": 0,
-    "featured": false,
-    "color": "Stealth Dark Charcoal（ステルスチャコール）",
-    "material": "高剛性PLA+（強化耐衝撃ポリ乳酸）",
-    "printSpecs": {
-      "layerHeight": "0.20mm 高強度ボロノイシェル",
-      "printTime": "約16時間50分",
-      "dimensions": "幅 140mm × 奥行 145mm × 高さ 260mm",
-      "weight": "約 240g",
-      "heatResistance": "耐熱温度 60℃"
-    },
-    "description": "自然界の蜂の巣や骨格構造に見られるボロノイ（Voronoi）分割アルゴリズムを活用した、金型成型では不可能な一体中空トラス構造。ヘッドホンのヘッドバンドにかかる荷重を均等に分散し、型崩れを防ぎます。ケーブルをスマートに巻き取れるベースフックを装備。",
-    "features": [
-      "金型不可能な3Dプリンタならではの有機的トラス立体構造",
-      "ヘッドバンドに優しい幅広曲面サポート",
-      "オーディオケーブルすっきり収納ベース"
-    ],
-    "images": [
-      {
-        "url": "assets/images/item-headphone-1.jpg",
-        "label": "ヘッドホン装着アングル",
-        "angle": "Front Fit"
-      },
-      {
-        "url": "assets/images/item-headphone-2.jpg",
-        "label": "ボロノイトラス拡大ディテール",
-        "angle": "Lattice Detail"
-      }
-    ],
-    "video": {
-      "type": "timelapse",
-      "title": "オーバーハング高難度中空プリント工程",
-      "preview": "assets/images/hero-craft.jpg"
-    }
-  },
-  {
-    "id": "ld-004",
-    "name": "プリズム インセンス＆キャンドルホルダー",
-    "subtitle": "Prism Incense & Tea-light Holder",
-    "category": "lifestyle",
-    "categoryName": "ライフスタイル・お香",
-    "price": 2900,
-    "stock": 8,
-    "featured": true,
-    "color": "Warm Ivory（ウォームアイボリー）",
-    "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
-    "printSpecs": {
-      "layerHeight": "0.12mm ウルトラファイン積層",
-      "printTime": "約7時間20分",
-      "dimensions": "幅 92mm × 奥行 92mm × 高さ 52mm",
-      "weight": "約 95g",
-      "heatResistance": "耐熱温度 55℃（※金属カップ入りティーライト付属）"
-    },
-    "description": "多面体幾何学のファセット（面）が光を複雑に反射し、キャンドルの炎やお香のゆらぎとともに美しい影のグラデーションをテーブル上に投影します。スティック型お香とLEDまたはカップ入りティーライトキャンドルの両方に対応するマルチパーパスデザイン。",
-    "features": [
-      "お香スティック穴（径2.5mm）＋金属受皿スペース",
-      "LEDティーライト・カップキャンドル両対応",
-      "0.12mmの極細ピッチによるシルキーな陶器調の質感"
-    ],
-    "images": [
-      {
-        "url": "assets/images/item-holder-1.jpg",
-        "label": "キャンドル＆お香ホルダー 全体",
+        "url": "assets/images/item-matrix-1.jpg?v=5",
+        "label": "正面・パースペクティブビュー",
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-holder-2.jpg",
-        "label": "上面・幾何学ファセットの陰影",
-        "angle": "Top Geometry"
+        "url": "assets/images/item-matrix-2.jpg",
+        "label": "サロン・ワークスペース使用シーン",
+        "angle": "Lifestyle Scene"
+      },
+      {
+        "url": "assets/images/item-matrix-3.jpg?v=3",
+        "label": "上面・幾何学マトリクス配置",
+        "angle": "Top Matrix"
+      },
+      {
+        "url": "assets/images/item-matrix-4.jpg",
+        "label": "実物スタジオフォト",
+        "angle": "Real Shot"
       }
     ],
     "video": {
       "type": "timelapse",
-      "title": "マイクロファセット造形プロセス",
+      "title": "オールパーパス用ロッド立て 3D造形プロセス",
+      "preview": "assets/images/hero-craft.jpg"
+    }
+  },
+  {
+    "id": "ld-006",
+    "name": "デザイン巻き用ロッド立て",
+    "subtitle": "オレンジのロング×15本対応",
+    "category": "winding-rod",
+    "categoryName": "ワインディング・ロッド",
+    "price": 3600,
+    "stock": 0,
+    "status": "preparing",
+    "featured": true,
+    "color": "Matte Pure White（マットピュアホワイト）",
+    "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
+    "printSpecs": {
+      "layerHeight": "0.16mm 高精細積層",
+      "printTime": "約8時間40分",
+      "dimensions": "幅 120mm × 奥行 65mm × 高さ 55mm",
+      "weight": "約 145g",
+      "heatResistance": "耐熱温度 55℃（直射日光・車内放置厳禁）"
+    },
+    "description": "パーマ施術における「デザイン巻き」に特化して設計された専用ロッドスタンド。使用頻度の高いオレンジのロングロッドを整然と15本（3×5グリッド）垂直キープ。ロッド同士が接触せず手返しよくスムーズに抜き差しできるため、サロンワークやコンテストでの巻き込みスピードと集中力を支えます。0.16mmの高精細積層によるマットで陶器のような質感が、ワゴン上を美しく整列させます。",
+    "features": [
+      "オレンジのロングロッド×15本を垂直保持する整列グリッド設計",
+      "デザイン巻きの手返しを最大化するスムーズな抜き差しクリアランス",
+      "倒れにくい低重心ブロック構造 ＆ トウモロコシ由来の環境調和型バイオPLA素材"
+    ],
+    "images": [
+      {
+        "url": "assets/images/item-design-stand-1.jpg?v=1",
+        "label": "正面・パースペクティブビュー",
+        "angle": "Perspective"
+      },
+      {
+        "url": "assets/images/item-design-stand-2.jpg?v=1",
+        "label": "サロン使用シーン（オレンジロング×15本＆コーム）",
+        "angle": "Salon Scene"
+      },
+      {
+        "url": "assets/images/item-design-stand-3.jpg?v=1",
+        "label": "上面・15ホール整列マトリクス配置",
+        "angle": "Top Grid"
+      },
+      {
+        "url": "assets/images/item-design-stand-4.jpg?v=1",
+        "label": "実物スタジオフォト",
+        "angle": "Real Shot"
+      }
+    ],
+    "video": {
+      "type": "timelapse",
+      "title": "デザイン巻き用ロッド立て 3D造形プロセス",
+      "preview": "assets/images/hero-craft.jpg"
+    }
+  },
+  {
+    "id": "ld-007",
+    "name": "オールパーパス用ショートロッド立て",
+    "subtitle": "グリーン×５　バイオレッド×５　ホワイト×５",
+    "category": "winding-rod",
+    "categoryName": "ワインディング・ロッド",
+    "price": 3600,
+    "stock": 0,
+    "status": "preparing",
+    "featured": true,
+    "color": "Matte Pure White（マットピュアホワイト）",
+    "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
+    "printSpecs": {
+      "layerHeight": "0.16mm 高精細積層",
+      "printTime": "約8時間40分",
+      "dimensions": "幅 120mm × 奥行 65mm × 高さ 55mm",
+      "weight": "約 145g",
+      "heatResistance": "耐熱温度 55℃（直射日光・車内放置厳禁）"
+    },
+    "description": "「オールパーパス」技法においてネープやサイド等で使用されるショートロッド群専用のロッドスタンド。グリーン×5本、バイオレット×5本、ホワイト×5本の各ロッド径に合わせて列ごとのホール径を段階的に最適化。太さの異なるロッドもぐらつかず垂直にホールドし、施術中のスムーズな手返しとミス防止をサポートします。0.16mmピッチの微細な積層痕が陶器のようなマットな質感を醸し出し、サロンのワゴン上を機能美で彩ります。",
+    "features": [
+      "グリーン×5本、バイオレット×5本、ホワイト×5本に最適化した径別ホール設計",
+      "太さの異なるショートロッドを整然と直立キープし、手返しスピード向上",
+      "倒れにくい低重心ブロック構造 ＆ トウモロコシ由来の環境調和型バイオPLA素材"
+    ],
+    "images": [
+      {
+        "url": "assets/images/item-short-stand-1.jpg?v=1",
+        "label": "正面・パースペクティブビュー",
+        "angle": "Perspective"
+      },
+      {
+        "url": "assets/images/item-short-stand-2.jpg?v=1",
+        "label": "サロン使用シーン（グリーン×5・バイオレット×5・ホワイト×5）",
+        "angle": "Salon Scene"
+      },
+      {
+        "url": "assets/images/item-short-stand-3.jpg?v=1",
+        "label": "上面・径別3列マトリクス配置",
+        "angle": "Top Grid"
+      },
+      {
+        "url": "assets/images/item-short-stand-4.jpg?v=1",
+        "label": "実物スタジオフォト",
+        "angle": "Real Shot"
+      }
+    ],
+    "video": {
+      "type": "timelapse",
+      "title": "オールパーパス用ショートロッド立て 3D造形プロセス",
       "preview": "assets/images/hero-craft.jpg"
     }
   }

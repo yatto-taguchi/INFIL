@@ -1,9 +1,14 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#111827"/>
-  <g transform="translate(8, 8)">
-    <polygon points="24,4 44,15 24,26 4,15" fill="#f9fafb" stroke="#111827" stroke-width="1.5" stroke-linejoin="round" />
-    <polygon points="4,15 24,26 24,44 4,33" fill="#9ca3af" stroke="#111827" stroke-width="1.5" stroke-linejoin="round" />
-    <polygon points="24,26 44,15 44,33 24,44" fill="#d1d5db" stroke="#111827" stroke-width="1.5" stroke-linejoin="round" />
-    <circle cx="24" cy="15" r="3" fill="#3b82f6" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0f172a"/>
+  <!-- Infill Geometric Core Pattern (Gyroid & Lattice) -->
+  <g transform="translate(10, 10)" stroke="#38bdf8" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer isometric hexagon boundary -->
+    <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" stroke="#f8fafc" stroke-width="2"/>
+    <!-- Internal infill lattice structure -->
+    <line x1="22" y1="2" x2="22" y2="46" stroke="#e2e8f0" stroke-width="1.8"/>
+    <line x1="3" y1="13" x2="41" y2="35" stroke="#94a3b8" stroke-width="1.4"/>
+    <line x1="3" y1="35" x2="41" y2="13" stroke="#94a3b8" stroke-width="1.4"/>
+    <!-- Center Infill Core Node -->
+    <circle cx="22" cy="24" r="3.5" fill="#38bdf8" stroke="#f8fafc" stroke-width="1.2"/>
   </g>
 </svg>

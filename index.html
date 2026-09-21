@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LittDesign - 3Dプリント製品 公式オンラインストア | 洗練された幾何学プロダクト</title>
-  <meta name="description" content="LittDesign合同会社の公式ストア。FDM方式3Dプリンタによる植物由来PLA素材のオリジナルクラフトプロダクトを販売。美しい幾何学構造とミニマルな機能美をお届けします。" />
+  <title>INFILL - 見えない構造にこそ、本質は宿る | 3Dプリントプロダクト 公式ストア</title>
+  <meta name="description" content="INFILL（インフィル）公式オンラインストア。見えない構造にこそ本質が宿る。メインストリームが見落とした隙間（ニッチ）を埋めるため、高精度3Dプリントによる合理的で洗練されたツールデザインをお届けします。" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 <body>
 
@@ -21,14 +23,14 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <!-- Brand Logo -->
-      <a href="index.html" class="brand-logo-wrap" title="LittDesign ホームへ">
-        <img src="assets/images/logo.svg" alt="LittDesign ロゴ" class="brand-logo-img" id="mainStoreLogo" />
+      <a href="index.html" class="brand-logo-wrap" title="INFILL ホームへ">
+        <img src="assets/images/logo.png" alt="INFILL ロゴ" class="brand-logo-img" id="mainStoreLogo" />
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav aria-label="メインメニュー">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active">商品一覧</a></li>
+          <li><a href="#productsCatalog" class="nav-link active">商品一覧</a></li>
           <li><a href="story.html" class="nav-link">ブランドストーリー</a></li>
           <li><a href="#craftHighlights" class="nav-link">PLA素材について</a></li>
           <li><a href="legal.html" class="nav-link">特定商取引法表記</a></li>
@@ -63,16 +65,12 @@
   <section class="hero-section" aria-labelledby="heroHeading">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          <span>Crafted in Tsuyama, Okayama</span>
-        </div>
         <h1 class="hero-title" id="heroHeading">
-          数式と造形の美学を、<br />
-          <span class="gradient-text">日々の空間へ。</span>
+          <span class="gradient-text">「違い」を知るあなたへ。</span>
         </h1>
         <p class="hero-lead">
-          LittDesignは、高精度3Dプリンタと植物由来のバイオPLA素材を用い、金型成型では不可能な複雑な幾何学構造と手触りを追求したオリジナル製品をお届けしています。
+          私たちは、すべての人に向けた製品を作りません。<br />
+          メインストリームが見落とした「隙間（ニッチ）」を埋めるため、合理的で洗練されたツールデザインを提供します。
         </p>
         <div class="hero-cta-group">
           <a href="#productsCatalog" class="btn-primary">
@@ -81,15 +79,15 @@
               <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
           </a>
-          <a href="story.html" class="btn-secondary">
-            <span>なぜ作るのか（開発背景）</span>
+          <a href="story.html" class="btn-secondary" style="border: 1px solid var(--border-light); background: rgba(255,255,255,0.8); backdrop-filter: blur(4px);">
+            <span>ブランドストーリーを読む</span>
           </a>
         </div>
       </div>
 
       <div class="hero-visual">
         <div class="hero-image-card">
-          <img src="assets/images/hero-craft.jpg" alt="精密3Dプリンタによる高精度なPLA造形プロセス" loading="eager" />
+          <img src="assets/images/hero-craft.jpg?v=2" alt="精密3Dプリンタによる高精度なPLA造形プロセス" loading="eager" />
           <div class="hero-floating-badge">
             <div class="floating-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -99,7 +97,7 @@
               </svg>
             </div>
             <div>
-              <div class="floating-text-sub">FDM Precision Printing</div>
+              <div class="floating-text-sub">FDM Precision Craft</div>
               <div class="floating-text-main">0.12 - 0.20mm 高精細積層</div>
             </div>
           </div>
@@ -107,6 +105,100 @@
       </div>
     </div>
   </section>
+
+  <!-- INFILL Brand Philosophy Section -->
+  <section class="philosophy-section" id="brandPhilosophy" aria-labelledby="philosophyHeading">
+    <div class="container">
+      <div class="philosophy-header">
+        <h2 class="philosophy-headline" id="philosophyHeading">
+          見えない構造にこそ、品質は宿る。
+        </h2>
+        <p class="philosophy-lead">
+          ブランド名である<strong>「INFILL（インフィル）」</strong>とは、3Dプリントにおける内部構造のこと。<br />
+          造形が完了すれば外からは見えなくなるその幾何学的な密度とパターンこそが、プロダクトの強度や重量、完成度を根底で支えています。<br />
+          表面的な装飾はいらない。必要な機能を、最適な構造で、必要な分だけ。<br />
+          わかる人にだけ響けばいい。INFILLは、見えない本質にこだわる人のための、合理的で洗練されたツールデザインです。
+        </p>
+      </div>
+
+      <!-- Infill Internal Structure Showcase Visual -->
+      <div class="philosophy-visual-card" style="position: relative;">
+        <img src="assets/images/infill-structure.jpg?v=9" alt="3Dプリントの内部幾何学インフィル構造（高剛性直線格子）" loading="lazy" />
+        <span style="position: absolute; top: 16px; right: 16px; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: #f8fafc; font-size: 0.72rem; font-weight: 500; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.18); z-index: 2;">※ 内部イメージ</span>
+        <div class="philosophy-visual-overlay">
+          <div class="philosophy-visual-quote">
+            <h3>Unseen Core ── 見えない内部構造の美学</h3>
+            <p>外側の滑らかなシェルの内側には、数式で制御された幾何学的直線インフィルが張り巡らされ、軽さと強靭さを両立させています。（※構造説明のための内部イメージです）</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Philosophy Cards -->
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <div class="philosophy-card-num">01</div>
+          <h3 class="philosophy-card-title">Fill the Niche</h3>
+          <div class="philosophy-card-subtitle">隙間を最適に埋める</div>
+          <p class="philosophy-card-desc">
+            大量生産品ではカバーしきれない、ぽっかりと空いた需要の「隙間」。私たちは都市の空き地を活用するインフィル開発のように、ニッチな課題に対してピンポイントで機能するプロダクトを提案します。
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-card-num">02</div>
+          <h3 class="philosophy-card-title">Unseen Core</h3>
+          <div class="philosophy-card-subtitle">見えない部分で勝負する</div>
+          <p class="philosophy-card-desc">
+            外見の派手さよりも、構造の美しさを。3Dプリントのインフィルが見えないところでプロダクトを支えているように、使い勝手や耐久性といった「本質的な機能」に徹底的にこだわります。
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-card-num">03</div>
+          <h3 class="philosophy-card-title">Optimized Form</h3>
+          <div class="philosophy-card-subtitle">無駄を削ぎ落とした合理性</div>
+          <p class="philosophy-card-desc">
+            必要な強度を保ちながら、無駄な材料を削ぎ落とすインフィルの設計思想。その合理的なシステムにインスピレーションを受け、機能美だけを抽出したソリッドなデザインを追求します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Catalog Section -->
+  <main class="products-section" id="productsCatalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Products &amp; Objects</span>
+        <h2 class="section-title">オリジナル製品一覧</h2>
+        <p class="section-lead">写真をクリックすると、様々な角度のアングル写真や3D造形スペック・注意事項をご確認いただけます。</p>
+      </div>
+
+      <!-- Toolbar: Categories and Sorting -->
+      <div class="catalog-toolbar">
+        <div class="filter-pills" role="tablist">
+          <button type="button" class="filter-btn active" data-filter="all">すべて</button>
+          <button type="button" class="filter-btn" data-filter="winding-rod">ワインディング・ロッド</button>
+          <button type="button" class="filter-btn" data-filter="winding-paper">ワインディング・ペーパー</button>
+        </div>
+
+        <div class="sort-wrapper">
+          <label for="catalogSort">並び替え:</label>
+          <select id="catalogSort" class="sort-select">
+            <option value="default">おすすめ順</option>
+            <option value="price-asc">価格の安い順</option>
+            <option value="price-desc">価格の高い順</option>
+            <option value="stock">在庫が多い順</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Products Grid -->
+      <div class="product-grid" id="productsGrid">
+        <!-- Rendered via js/app.js -->
+      </div>
+    </div>
+  </main>
 
   <!-- Craft & PLA Material Highlights -->
   <section class="craft-strip" id="craftHighlights" aria-label="3Dプリントと素材のこだわり">
@@ -153,43 +245,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Products Catalog Section -->
-  <main class="products-section" id="productsCatalog">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Products &amp; Objects</span>
-        <h2 class="section-title">オリジナル製品一覧</h2>
-        <p class="section-lead">写真をクリックすると、様々な角度のアングル写真や3D造形スペック・注意事項をご確認いただけます。</p>
-      </div>
-
-      <!-- Toolbar: Categories and Sorting -->
-      <div class="catalog-toolbar">
-        <div class="filter-pills" role="tablist">
-          <button type="button" class="filter-btn active" data-filter="all">すべて</button>
-          <button type="button" class="filter-btn" data-filter="interior">インテリア・花器</button>
-          <button type="button" class="filter-btn" data-filter="stationery">ステーショナリー</button>
-          <button type="button" class="filter-btn" data-filter="gadget">ガジェット・オーディオ</button>
-          <button type="button" class="filter-btn" data-filter="lifestyle">ライフスタイル</button>
-        </div>
-
-        <div class="sort-wrapper">
-          <label for="catalogSort">並び替え:</label>
-          <select id="catalogSort" class="sort-select">
-            <option value="default">おすすめ順</option>
-            <option value="price-asc">価格の安い順</option>
-            <option value="price-desc">価格の高い順</option>
-            <option value="stock">在庫が多い順</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Dynamic Products Grid -->
-      <div class="product-grid" id="productsGrid">
-        <!-- Rendered via js/app.js -->
-      </div>
-    </div>
-  </main>
 
   <!-- Product Detail Modal -->
   <div class="modal-backdrop" id="productDetailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
@@ -462,7 +517,7 @@
         </div>
         <h3 class="success-title">ご注文・決済が完了しました</h3>
         <p style="color:var(--text-secondary); margin-bottom:12px;">ご購入誠にありがとうございます。</p>
-        <span class="order-id-badge">注文番号: <span id="successOrderId">LD-20260917-0000</span></span>
+        <span class="order-id-badge">注文番号: <span id="successOrderId">INF-20260918-0000</span></span>
 
         <div class="success-notification-card">
           <div style="font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
@@ -572,17 +627,19 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="assets/images/logo.svg" alt="LittDesign ロゴ" style="height:36px; width:auto;" />
+          <img src="assets/images/logo.png" alt="INFILL ロゴ" style="height:32px; width:auto; margin-bottom:14px;" />
           <p class="footer-brand-text">
-            LittDesign（リットデザイン）合同会社<br />
-            FDM方式3Dプリンタによる高精度なオリジナルプロダクトを少量限定生産でお届けするデザインブランドです。
+            <strong>INFILL（インフィル）</strong><br />
+            見えない構造にこそ、本質は宿る。<br />
+            FDM方式3Dプリンタによる高精度なツールデザインを少量限定生産でお届けします。<br />
+            <span style="font-size:0.8rem; color:var(--text-muted);">運営企業: LittDesign合同会社</span>
           </p>
         </div>
 
         <div>
           <h4 class="footer-column-title">ナビゲーション</h4>
           <ul class="footer-nav-list">
-            <li><a href="index.html">商品一覧（ホーム）</a></li>
+            <li><a href="#productsCatalog">商品一覧</a></li>
             <li><a href="story.html">ブランドストーリー</a></li>
             <li><a href="#craftHighlights">PLA素材について</a></li>
             <li><a href="legal.html">特定商取引法に基づく表記</a></li>
@@ -592,8 +649,8 @@
         <div>
           <h4 class="footer-column-title">運営企業・お問い合わせ</h4>
           <ul class="footer-nav-list">
-            <li>LittDesign合同会社</li>
-            <li>運営責任者: 田口 隼人</li>
+            <li>INFILL（運営: LittDesign合同会社）</li>
+            <li>代表統括責任者: 田口 隼人</li>
             <li>TEL: 0868-35-3288</li>
             <li>MAIL: taguchihayato.8810@gmail.com</li>
             <li>〒708-0002 岡山県津山市上河原170-3</li>
@@ -605,15 +662,15 @@
           <ul class="footer-nav-list">
             <li>クレジットカード（VISA, Master, JCB, AMEX）</li>
             <li>PayPay オンライン決済</li>
-            <li>引き渡し時期: 7営業日以内に発送</li>
+            <li>引き渡し時期: ご注文後7営業日以内に発送</li>
             <li>返品: 当社原因による場合7日以内に対応</li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 LittDesign LLC. All rights reserved.</div>
-        <div>Designed for Precision 3D Craftsmanship.</div>
+        <div>&copy; 2026 INFILL by LittDesign LLC. All rights reserved.</div>
+        <div>Fill the Gap, Build the Core. Crafted in Tsuyama, Okayama.</div>
       </div>
     </div>
   </footer>

@@ -3,68 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Story - なぜ私たちは3Dプリンタでオリジナル製品を作るのか | LittDesign</title>
-  <meta name="description" content="LittDesign合同会社が3Dプリンタによるオリジナル製品開発に至った背景とクラフトマンシップの哲学。大量生産にはない幾何学造形の美とPLA素材へのこだわり。" />
+  <title>Our Story - 見えない構造にこそ、本質は宿る | INFILL</title>
+  <meta name="description" content="3Dプリントツールデザインブランド「INFILL（インフィル）」のストーリーとマニフェスト。見えない内部構造にこそ宿る本質、3つの理念（Fill the Niche / Unseen Core / Optimized Form）、岡山県津山市でのものづくり。" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
   <style>
-    /* Story Page Editorial Styles */
+    /* Story Editorial Custom Styles */
     .story-hero {
-      padding: 90px 0 60px;
+      padding: 100px 0 70px;
       text-align: center;
-      background: radial-gradient(circle at 50% 10%, rgba(243, 244, 246, 0.8) 0%, rgba(255, 255, 255, 1) 70%);
+      background: radial-gradient(circle at 50% 10%, rgba(241, 245, 249, 0.9) 0%, rgba(255, 255, 255, 1) 75%);
       border-bottom: 1px solid var(--border-subtle);
     }
     .story-hero-subtitle {
       font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
     .story-hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2.2rem, 4.4vw, 3.4rem);
       font-weight: 800;
       line-height: 1.25;
       letter-spacing: -0.03em;
       margin-bottom: 24px;
+      color: var(--text-primary);
     }
     .story-lead-container {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
-      font-size: 1.12rem;
-      line-height: 1.9;
+      font-size: 1.15rem;
+      line-height: 1.95;
       color: var(--text-secondary);
     }
+    .story-manifesto-box {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin: 48px auto 0;
+      max-width: 680px;
+      text-align: left;
+    }
+    .story-manifesto-quote {
+      font-family: var(--font-heading);
+      font-size: 1.28rem;
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
     .story-article {
-      max-width: 780px;
-      margin: 60px auto 100px;
+      max-width: 820px;
+      margin: 70px auto 100px;
       padding: 0 24px;
     }
     .story-section {
-      margin-bottom: 72px;
+      margin-bottom: 84px;
     }
     .story-heading {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 20px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .story-heading-num {
+      font-size: 1.1rem;
+      color: #0ea5e9;
+      font-weight: 700;
     }
     .story-paragraph {
-      font-size: 1rem;
-      line-height: 1.95;
+      font-size: 1.02rem;
+      line-height: 2.0;
       color: var(--text-secondary);
       margin-bottom: 24px;
     }
     .story-image-full {
+      position: relative;
       border-radius: var(--radius-md);
       overflow: hidden;
-      margin: 36px 0;
+      margin: 40px 0;
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow-md);
     }
@@ -73,47 +102,107 @@
       height: auto;
       display: block;
     }
+    .story-image-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #f8fafc;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
     .story-image-caption {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       text-align: center;
-      margin-top: 8px;
+      margin-top: 10px;
     }
     .story-quote-card {
       background: var(--bg-secondary);
-      border-left: 3px solid var(--text-primary);
-      padding: 24px 28px;
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      margin: 36px 0;
-      font-size: 1.05rem;
-      line-height: 1.8;
+      border-left: 4px solid var(--text-primary);
+      padding: 28px 32px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 40px 0;
+      font-size: 1.08rem;
+      line-height: 1.85;
       font-weight: 500;
       color: var(--text-primary);
+    }
+    .story-philosophy-card-full {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .story-philosophy-card-full .p-num {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+    .story-philosophy-card-full .p-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .story-philosophy-card-full .p-sub {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #0ea5e9;
+      margin-bottom: 14px;
+    }
+    .story-philosophy-card-full .p-text {
+      font-size: 0.98rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin: 0;
     }
     .story-profile-card {
       background: #ffffff;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 36px;
       box-shadow: var(--shadow-sm);
       display: flex;
-      gap: 24px;
+      gap: 28px;
       align-items: center;
       margin-top: 60px;
     }
     .profile-avatar {
-      width: 72px;
-      height: 72px;
+      width: 76px;
+      height: 76px;
       border-radius: 50%;
-      background: var(--bg-tertiary);
+      background: var(--text-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-family: var(--font-heading);
       font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-primary);
+      font-weight: 800;
+      color: #ffffff;
+    }
+    @media (max-width: 640px) {
+      .story-profile-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .story-manifesto-box {
+        padding: 24px;
+      }
     }
   </style>
 </head>
@@ -129,12 +218,12 @@
   <!-- Site Navigation Header -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo-wrap" title="LittDesign ホームへ">
-        <img src="assets/images/logo.svg" alt="LittDesign ロゴ" class="brand-logo-img" />
+      <a href="index.html" class="brand-logo-wrap" title="INFILL ホームへ">
+        <img src="assets/images/logo.png" alt="INFILL ロゴ" class="brand-logo-img" />
       </a>
       <nav aria-label="メインメニュー">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">商品一覧</a></li>
+          <li><a href="index.html#productsCatalog" class="nav-link">商品一覧</a></li>
           <li><a href="story.html" class="nav-link active">ブランドストーリー</a></li>
           <li><a href="index.html#craftHighlights" class="nav-link">PLA素材について</a></li>
           <li><a href="legal.html" class="nav-link">特定商取引法表記</a></li>
@@ -153,81 +242,139 @@
     <div class="container">
       <div class="story-hero-subtitle">Brand Story &amp; Philosophy</div>
       <h1 class="story-hero-title">
-        なぜ私たちは、3Dプリンタで<br />
-        オリジナル製品を作るのか。
+        「違い」を知るあなたへ。
       </h1>
       <div class="story-lead-container">
-        金型で作られる既製品が溢れるこの時代に、なぜあえて時間をかけて1層ずつ樹脂を積み上げるのか。<br />
-        LittDesignが目指すのは、デジタル技術とクラフトマンシップが融合した「新しい手触りと造形美」です。
+        見えない構造にこそ、品質は宿る。<br />
+        私たちは、すべての人に向けた製品を作りません。<br />
+        メインストリームが見落とした「隙間（ニッチ）」を埋めるため、合理的で洗練されたツールデザインを提供します。
+      </div>
+
+      <div class="story-manifesto-box">
+        <div class="story-manifesto-quote">
+          「表面的な装飾はいらない。必要な機能を、最適な構造で、必要な分だけ。」
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.85; color: var(--text-secondary); margin:0;">
+          わかる人にだけ響けばいい。INFILL（インフィル）は、見えない本質にこだわる人のために生まれた、合理的で洗練されたツールデザインブランドです。
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Story Article Body -->
   <article class="story-article">
+
+    <!-- Section 1: Brand Origin -->
     <section class="story-section">
-      <h2 class="story-heading">1. 大量生産の均一化に対する違和感から</h2>
+      <h2 class="story-heading">
+        <span class="story-heading-num">01</span>
+        「INFILL（インフィル）」という名に込めた思想
+      </h2>
       <p class="story-paragraph">
-        私たちが暮らす現代社会は、プラスチックの射出成型による「安価で大量の工業製品」に囲まれています。それらは便利で手頃な反面、金型から抜くための制約（テーパー角やアンダーカットの回避）によって、デザインの自由度が制限され、どこか似通った形状になりがちです。
+        「インフィル（Infill）」とは、3Dプリント技術において、製品の内部に格子状・幾何学状に生成される<strong>「内部充填構造」</strong>を指す言葉です。
       </p>
       <p class="story-paragraph">
-        「もっと複雑で、自然界のように有機的で、見る角度によってまったく異なる表情を見せる造形は作れないだろうか？」<br />
-        この純粋な問いが、私たちの3Dプリントプロダクト開発の出発点でした。
+        造形が完了したプロダクトの外見からは、その内部構造を見ることはできません。しかし、外側からは見えなくなるその幾何学的な密度とパターンこそが、プロダクトの強度、重量、剛性、そして手にしたときの確かな密度感を根底から支えています。
+      </p>
+
+      <!-- Linear Infill Internal Structure Image -->
+      <div class="story-image-full">
+        <img src="assets/images/infill-structure.jpg?v=9" alt="FDM積層によって構築された内部幾何学直線インフィル構造の断面写真" />
+        <span class="story-image-badge">※ 内部イメージ</span>
+      </div>
+      <div class="story-image-caption">
+        数学的アルゴリズムによって計算された幾何学的直線インフィル格子<br />
+        <span style="font-size: 0.75rem; color: var(--text-muted);">（※ 構造説明のための内部イメージです。実際の完成品表面は外壁で成型されています）</span>
+      </div>
+
+      <p class="story-paragraph">
+        私たちはこの「目に見えない内部構造の美学」に、ものづくりの本質を見出しました。虚飾に満ちた表面デザインではなく、構造そのものの合理性から生まれるソリッドな機能美。それが、INFILLというブランドの原点です。
+      </p>
+    </section>
+
+    <!-- Section 2: 3 Philosophies -->
+    <section class="story-section">
+      <h2 class="story-heading">
+        <span class="story-heading-num">02</span>
+        OUR PHILOSOPHY ── 私たちが貫く3つの理念
+      </h2>
+      <p class="story-paragraph">
+        INFILLが世に送り出すプロダクトは、すべて以下の3つの設計思想に基づいてデザイン・製造されています。
+      </p>
+
+      <div class="story-philosophy-card-full">
+        <div class="p-num">01</div>
+        <div class="p-title">Fill the Niche</div>
+        <div class="p-sub">隙間を最適に埋める</div>
+        <p class="p-text">
+          大量生産品ではカバーしきれない、ぽっかりと空いた需要の「隙間」。私たちは都市の空き地を活用するインフィル開発のように、ニッチな課題に対してピンポイントで機能するプロダクトを提案します。万人受けを狙うのではなく、それを切実に必要としている一人のために。
+        </p>
+      </div>
+
+      <div class="story-philosophy-card-full">
+        <div class="p-num">02</div>
+        <div class="p-title">Unseen Core</div>
+        <div class="p-sub">見えない部分で勝負する</div>
+        <p class="p-text">
+          外見の派手さよりも、構造の美しさを。3Dプリントのインフィルが見えないところでプロダクトを支えているように、使い勝手や耐久性といった「本質的な機能」に徹底的にこだわります。手にとった瞬間の重心バランス、日常に溶け込む触感を追求します。
+        </p>
+      </div>
+
+      <div class="story-philosophy-card-full">
+        <div class="p-num">03</div>
+        <div class="p-title">Optimized Form</div>
+        <div class="p-sub">無駄を削ぎ落とした合理性</div>
+        <p class="p-text">
+          必要な強度を保ちながら、無駄な材料を削ぎ落とすインフィルの設計思想。その合理的なシステムにインスピレーションを受け、機能美だけを抽出したソリッドなデザインを追求します。装飾のための形状は一切排除し、構造がそのままフォルムとなる潔さを目指します。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: Craftsmanship & PLA -->
+    <section class="story-section">
+      <h2 class="story-heading">
+        <span class="story-heading-num">03</span>
+        植物由来の「バイオPLA素材」と積層のクラフト感
+      </h2>
+      <p class="story-paragraph">
+        INFILLが主要素材として選択した「PLA（ポリ乳酸）」は、石油由来ではなく、トウモロコシやサトウキビのデンプンを発酵させて作られる環境調和型のバイオプラスチックです。
+      </p>
+      <p class="story-paragraph">
+        0.12mm〜0.20mmのピッチで樹脂を一層ずつ丹念に積み上げる熱溶解積層（FDM）プロセスによって、表面には微細なレイヤーラインが刻まれます。これは単なる工業製品の成型痕ではなく、光をマットに拡散させ、まるで白磁や和紙、焼き物のような独自のシルキーなテクスチャをもたらします。
       </p>
 
       <div class="story-image-full">
-        <img src="assets/images/hero-craft.jpg" alt="高精度3DプリンタのノズルからPLAが押し出される瞬間" />
+        <img src="assets/images/hero-craft.jpg?v=2" alt="高精度3DプリンタのノズルからPLAが押し出される瞬間" />
       </div>
       <div class="story-image-caption">0.12mm〜0.20mmのピッチで樹脂を積み重ねるFDM方式3Dプリンタの造形プロセス</div>
-    </section>
-
-    <section class="story-section">
-      <h2 class="story-heading">2. 数学的な美学を、物理的な空間へ</h2>
-      <p class="story-paragraph">
-        3Dプリンタの最大の魅力は、従来の切削や金型では物理的に製造不可能だった「内部中空構造」「ボロノイ分割幾何学」「ねじれを伴うスパイラル曲面」を、PC上の数式とCADデータからダイレクトに実体化できる点にあります。
-      </p>
-      <p class="story-paragraph">
-        たとえば、LittDesignのプランターやキャンドルホルダーは、複雑なファセット（面）が光を不均一に反射するように緻密に計算されています。窓辺に差し込む朝の光、夕暮れ時の淡い影、そして夜のキャンドルのゆらぎ。時間の経過とともに陰影が刻々と移ろう姿は、部屋の中に小さなアートピースのような静けさをもたらします。
-      </p>
 
       <div class="story-quote-card">
-        「機械が作っているのに、どこか陶芸や木彫のような温かみとクラフト感がある。それが私たちの目指す3Dプリントの地平です。」
+        「機械が作っているのに、どこか陶芸や建築のような温かみとクラフト感がある。デジタル製造と人の手による仕上げが交差する場所に、INFILLの造形美があります。」
       </div>
     </section>
 
+    <!-- Section 4: Workshop in Tsuyama, Okayama -->
     <section class="story-section">
-      <h2 class="story-heading">3. 植物由来の「バイオPLA素材」を選ぶ理由</h2>
+      <h2 class="story-heading">
+        <span class="story-heading-num">04</span>
+        岡山県津山市から、必要な分だけを丁寧に
+      </h2>
       <p class="story-paragraph">
-        私たちが主要素材として採用している「PLA（ポリ乳酸）」は、石油由来ではなく、トウモロコシやサトウキビのデンプンを発酵させて作られる環境調和型のバイオプラスチックです。
+        INFILLは、岡山県津山市の工房（LittDesign合同会社）にて企画・設計・製造を一貫して行っています。
       </p>
       <p class="story-paragraph">
-        熱溶解積層（FDM）によって生まれる微細な積層痕（レイヤーライン）は、マットなPLA樹脂と組み合わさることで、まるで白磁や和紙、焼き物のような独自のシルキーなテクスチャを生み出します。<br />
-        耐熱温度が約55℃という熱に敏感な特性はありますが、室内のインテリアやステーショナリーとして寄り添うには十分な強度と、環境への優しさを兼ね備えています。
-      </p>
-
-      <div class="story-image-full">
-        <img src="assets/images/item-planter-3.jpg" alt="PLA素材の表面に現れる繊細な積層ラインの拡大" />
-      </div>
-      <div class="story-image-caption">0.16mmの積層ラインが光を捉え、しっとりとしたマットな陰影を生み出す</div>
-    </section>
-
-    <section class="story-section">
-      <h2 class="story-heading">4. 岡山県津山市から、必要な分だけを丁寧に</h2>
-      <p class="story-paragraph">
-        LittDesignは、岡山県津山市に工房を構えています。巨大な工場で何万個も作り置きして余れば廃棄するような製造スタイルとは一線を画し、1つの製品に十数時間を費やし、自らの目でクオリティを確かめた「在庫のある数量」だけを皆様にお届けしています。
-      </p>
-      <p class="story-paragraph">
-        手にとっていただいた瞬間に、「あ、これは市販のプラスチックとは全く違う」と感じていただけるようなプロダクトを、これからも探求し続けてまいります。
+        巨大な工場で何万個も作り置きして売れ残れば廃棄するような大量消費スタイルとは一線を画し、1つの製品に十数時間を費やし、自らの目でクオリティを確かめた「在庫のある数量」だけを皆様にお届けしています。
       </p>
 
       <!-- Founder Profile Card -->
       <div class="story-profile-card">
-        <div class="profile-avatar">LD</div>
+        <div class="profile-avatar">IF</div>
         <div>
-          <div style="font-size:0.8rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">Brand Creator</div>
-          <div style="font-family:var(--font-heading); font-size:1.25rem; font-weight:700; color:var(--text-primary); margin:2px 0 6px;">田口 隼人 / Hayato Taguchi</div>
-          <p style="font-size:0.86rem; color:var(--text-secondary); line-height:1.6; margin:0;">
-            LittDesign合同会社 代表。3D CAD設計とFDM積層技術を融合させたオリジナル幾何学オブジェクトの企画・設計・製造を一貫して手掛ける。
+          <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">Brand Founder &amp; Designer</div>
+          <div style="font-family:var(--font-heading); font-size:1.35rem; font-weight:800; color:var(--text-primary); margin:4px 0 6px;">田口 隼人 / Hayato Taguchi</div>
+          <div style="font-size:0.86rem; color:#0ea5e9; font-weight:600; margin-bottom:8px;">LittDesign合同会社 代表</div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.7; margin:0;">
+            3D CAD設計とFDM積層アルゴリズムを融合させたツールデザインブランド「INFILL」を主宰。大量生産の工業製品が忘れてしまった「隙間（ニッチ）」を満たす合理的かつ洗練されたプロダクトを岡山県津山市から発信している。
           </p>
         </div>
       </div>
@@ -249,7 +396,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom" style="border:none; padding:0; justify-content:center; text-align:center;">
-        <div>&copy; 2026 LittDesign LLC. All rights reserved. Crafted in Tsuyama, Okayama.</div>
+        <div>&copy; 2026 INFILL by LittDesign LLC. All rights reserved. Crafted in Tsuyama, Okayama.</div>
       </div>
     </div>
   </footer>
