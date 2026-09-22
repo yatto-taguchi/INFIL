@@ -377,8 +377,7 @@ class LittStoreApp {
     if (btnStartCheckout) {
       btnStartCheckout.addEventListener('click', () => {
         if (this.cart.length === 0) return;
-        this.closeCart();
-        this.openCheckoutModal();
+        this.startStripeCheckout();
       });
     }
     if (btnCloseCheckout) {
@@ -483,6 +482,12 @@ class LittStoreApp {
         this.closeAuthModal();
       }
     });
+
+    // Check URL parameters (e.g. return from cancel.html)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('openCart') === 'true') {
+      setTimeout(() => this.openCart(), 300);
+    }
   }
 
   // 3. Rendering Products
@@ -807,8 +812,69 @@ class LittStoreApp {
     if (totalEl) totalEl.textContent = `¥${grandTotal.toLocaleString()}`;
   }
 
-  // 6. Checkout Flow (Stripe / PayPay Simulator)
-  openCheckoutModal() {
+  // 6. Checkout Flow (Stripe Real API & Simulator Fallback)
+  async startStripeCheckout() {
+    if (this.cart.length === 0) return;
+
+    const btn = document.getElementById('btnStartCheckout');
+    const originalContent = btn ? btn.innerHTML : '';
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = `
+        <span class="stripe-loading-spinner"></span>
+        <span>Stripe決済へ接続中...</span>
+      `;
+    }
+
+    try {
+      // Build cart items array with product details
+      const items = this.cart.map(c => {
+        const prod = this.products.find(p => p.id === c.productId);
+        return {
+          id: c.productId,
+          name: prod ? prod.name : 'INFILL 3Dプリント製品',
+          subtitle: prod ? prod.subtitle : '',
+          categoryName: prod ? prod.categoryName : '',
+          price: prod ? prod.price : 3600,
+          quantity: c.quantity
+        };
+      });
+
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: items,
+          customerEmail: this.currentUser ? this.currentUser.email : undefined
+        })
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.url) {
+        // Redirect seamlessly to Stripe Checkout official page
+        window.location.href = data.url;
+        return;
+      }
+
+      console.warn('Stripe checkout notice:', data);
+      // If Stripe secret key is not configured on Vercel yet, fall back gracefully to simulation modal
+      this.closeCart();
+      this.openCheckoutModal(data.message);
+
+    } catch (err) {
+      console.warn('Stripe checkout endpoint offline or error, opening modal:', err);
+      this.closeCart();
+      this.openCheckoutModal();
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = originalContent;
+      }
+    }
+  }
+
+  openCheckoutModal(noticeMessage) {
     const modal = document.getElementById('checkoutModal');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -824,7 +890,7 @@ class LittStoreApp {
     }
 
     // Populate summary in checkout
-    this.renderCheckoutSummary();
+    this.renderCheckoutSummary(noticeMessage);
     this.togglePaymentFields();
   }
 
@@ -847,7 +913,7 @@ class LittStoreApp {
     }
   }
 
-  renderCheckoutSummary() {
+  renderCheckoutSummary(noticeMessage) {
     const container = document.getElementById('checkoutSummaryBox');
     if (!container) return;
 
@@ -866,7 +932,15 @@ class LittStoreApp {
     const shipping = subtotal >= 10000 ? 0 : 500;
     const grandTotal = subtotal + shipping;
 
+    const noticeHtml = noticeMessage ? `
+      <div style="background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; border-radius:8px; padding:10px 12px; margin-bottom:14px; font-size:0.78rem; line-height:1.5;">
+        <strong>【テスト・シミュレーションモード】</strong><br />
+        ${noticeMessage}
+      </div>
+    ` : '';
+
     container.innerHTML = `
+      ${noticeHtml}
       <div style="font-weight:700; margin-bottom:10px; font-size:0.9rem;">ご注文明細</div>
       ${listHtml}
       <div style="border-top:1px solid var(--border-medium); margin-top:8px; padding-top:8px; display:flex; justify-content:space-between; font-size:0.86rem; color:var(--text-secondary);">

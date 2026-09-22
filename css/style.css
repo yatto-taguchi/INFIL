@@ -1951,3 +1951,59 @@ button {
   }
 }
 
+/* ==========================================================================
+   Stripe Checkout Integration Styles
+   ========================================================================== */
+.stripe-loading-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: stripe-spin 0.8s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes stripe-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cart-payment-methods {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.cart-payment-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #374151;
+}
+
+.stripe-secured-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+

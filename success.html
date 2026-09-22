@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ご注文ありがとうございます | INFILL (インフィル)</title>
+  <meta name="description" content="INFILLの3Dプリントロッドスタンドをご注文いただき、誠にありがとうございます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .success-page-wrapper {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+    .success-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #f0fdf4;
+      border: 2px solid #bbf7d0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: #16a34a;
+      font-size: 32px;
+    }
+    .success-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .success-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .order-info-box {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+      text-align: left;
+      font-size: 13px;
+    }
+    .order-info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+    .order-info-row:last-child {
+      border-bottom: none;
+    }
+    .order-info-label {
+      color: #6b7280;
+    }
+    .order-info-val {
+      font-weight: 600;
+      color: #111827;
+      font-family: monospace;
+    }
+    .next-step-box {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 32px;
+      text-align: left;
+      font-size: 12px;
+      color: #92400e;
+      line-height: 1.6;
+    }
+    .btn-return-home {
+      display: inline-block;
+      background: #111827;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-return-home:hover {
+      background: #374151;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">INFILL</span>
+        <span class="logo-sub">3D CRAFT GEAR</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">PRODUCTS</a>
+        <a href="story.html" class="nav-link">STORY</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Success Content -->
+  <main class="success-page-wrapper">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <h1 class="success-title">ご注文ありがとうございます</h1>
+      <p class="success-subtitle">
+        Stripeによる決済手続きが正常に完了いたしました。<br />
+        ご登録いただいたメールアドレス宛に、決済完了通知をお送りしております。
+      </p>
+
+      <div class="order-info-box">
+        <div class="order-info-row">
+          <span class="order-info-label">決済ステータス</span>
+          <span class="order-info-val" style="color:#16a34a;">支払い完了 (Stripe)</span>
+        </div>
+        <div class="order-info-row">
+          <span class="order-info-label">注文番号 (Session ID)</span>
+          <span class="order-info-val" id="dispSessionId">処理中...</span>
+        </div>
+        <div class="order-info-row">
+          <span class="order-info-label">決済日</span>
+          <span class="order-info-val" id="dispOrderDate">-</span>
+        </div>
+      </div>
+
+      <div class="next-step-box">
+        <strong>【今後の流れについて】</strong><br />
+        当ブランドの製品は、1点ずつ岡山県のスタジオにて高密度FDM 3Dプリンターで精密積層・検査を行っております。
+        通常3〜5営業日以内に丁寧に梱包の上、発送いたします。発送完了時に追跡番号をメールにてご連絡いたします。
+      </div>
+
+      <a href="index.html" class="btn-return-home">トップページへ戻る</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="text-align:center; padding:32px 0;">
+      <p>&copy; 2026 INFILL. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Clear shopping cart upon successful payment
+    try {
+      localStorage.removeItem('litt_cart');
+      console.log('Cart cleared after successful Stripe Checkout');
+    } catch(e) {
+      console.error(e);
+    }
+
+    // Display Session ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id') || 'INF-' + Math.floor(100000 + Math.random() * 900000);
+    const shortSessionId = sessionId.length > 24 ? sessionId.substring(0, 22) + '...' : sessionId;
+    document.getElementById('dispSessionId').textContent = shortSessionId;
+    document.getElementById('dispSessionId').title = sessionId;
+
+    const now = new Date();
+    document.getElementById('dispOrderDate').textContent = now.toLocaleDateString('ja-JP') + ' ' + now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+  </script>
+</body>
+</html>

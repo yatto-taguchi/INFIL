@@ -380,13 +380,28 @@
           <span>合計金額（税込）</span>
           <span id="cartTotalAmount">¥0</span>
         </div>
+        <div class="cart-payment-methods">
+          <span class="cart-payment-badge">Apple Pay</span>
+          <span class="cart-payment-badge">Google Pay</span>
+          <span class="cart-payment-badge">VISA</span>
+          <span class="cart-payment-badge">Master</span>
+          <span class="cart-payment-badge">JCB</span>
+          <span class="cart-payment-badge">AMEX</span>
+        </div>
         <button type="button" class="btn-checkout-start" id="btnStartCheckout">
-          <span>ご注文手続きへ（決済）</span>
+          <span>Stripeで安全に注文決済へ</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </button>
+        <div class="stripe-secured-notice">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>256bit SSL暗号化 Stripe Checkout</span>
+        </div>
       </div>
     </div>
   </div>

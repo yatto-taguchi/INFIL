@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>決済がキャンセルされました | INFILL (インフィル)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .cancel-page-wrapper {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+    .cancel-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    }
+    .cancel-icon {
+      width: 72px;
+      height: 72px;
+      background: #fef2f2;
+      border: 2px solid #fecaca;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: #ef4444;
+      font-size: 28px;
+    }
+    .cancel-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+    .cancel-subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .btn-return-cart {
+      display: inline-block;
+      background: #111827;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-return-cart:hover {
+      background: #374151;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">INFILL</span>
+        <span class="logo-sub">3D CRAFT GEAR</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="cancel-page-wrapper">
+    <div class="cancel-card">
+      <div class="cancel-icon">✕</div>
+      <h1 class="cancel-title">決済がキャンセルされました</h1>
+      <p class="cancel-subtitle">
+        Stripe決済の手続きが中断されました。<br />
+        カードへのご請求は発生しておりません。<br />
+        カートに入っている商品はそのまま保存されています。
+      </p>
+      <a href="index.html?openCart=true" class="btn-return-cart">お買い物を続ける</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="text-align:center; padding:32px 0;">
+      <p>&copy; 2026 INFILL. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
