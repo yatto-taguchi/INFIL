@@ -12,8 +12,8 @@ const FALLBACK_PRODUCTS = [
     "category": "winding-rod",
     "categoryName": "ワインディング・ロッド",
     "price": 3600,
-    "stock": 10,
-    "status": "in_stock",
+    "stock": 0,
+    "status": "preparing",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
@@ -60,8 +60,8 @@ const FALLBACK_PRODUCTS = [
     "category": "winding-rod",
     "categoryName": "ワインディング・ロッド",
     "price": 3600,
-    "stock": 10,
-    "status": "in_stock",
+    "stock": 0,
+    "status": "preparing",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
@@ -113,8 +113,8 @@ const FALLBACK_PRODUCTS = [
     "category": "winding-rod",
     "categoryName": "ワインディング・ロッド",
     "price": 3600,
-    "stock": 10,
-    "status": "in_stock",
+    "stock": 0,
+    "status": "preparing",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
@@ -210,10 +210,12 @@ class LittStoreApp {
       try {
         const stockMap = JSON.parse(localStock);
         this.products.forEach(p => {
-          if (stockMap[p.id] !== undefined && stockMap[p.id] > 0) {
-            p.stock = stockMap[p.id];
-          } else if (p.status === 'in_stock' && p.stock <= 0) {
-            p.stock = 10;
+          if (p.status !== 'preparing') {
+            if (stockMap[p.id] !== undefined && stockMap[p.id] > 0) {
+              p.stock = stockMap[p.id];
+            } else if (p.status === 'in_stock' && p.stock <= 0) {
+              p.stock = 10;
+            }
           }
         });
       } catch (err) {
@@ -221,9 +223,11 @@ class LittStoreApp {
       }
     }
 
-    // Ensure all in_stock products have available stock
+    // Ensure all in_stock products have available stock, and preparing products have stock 0
     this.products.forEach(p => {
-      if (p.status === 'in_stock' && (!p.stock || p.stock <= 0)) {
+      if (p.status === 'preparing') {
+        p.stock = 0;
+      } else if (p.status === 'in_stock' && (!p.stock || p.stock <= 0)) {
         p.stock = 10;
       }
     });
