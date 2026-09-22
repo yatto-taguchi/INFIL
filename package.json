@@ -1,0 +1,10 @@
+{
+  "name": "infill-shop",
+  "version": "1.0.0",
+  "description": "INFILL 3D Craft Gear E-commerce with Stripe Checkout",
+  "main": "index.html",
+  "scripts": {},
+  "dependencies": {
+    "stripe": "^17.7.0"
+  }
+}

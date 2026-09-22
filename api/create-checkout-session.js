@@ -1,5 +1,5 @@
 // Vercel Serverless Function: Stripe Checkout Session Generator
-// Node.js 18+ (Native fetch, zero npm dependencies required)
+import Stripe from 'stripe';
 
 export default async function handler(req, res) {
   // CORS Headers
@@ -25,8 +25,16 @@ export default async function handler(req, res) {
     });
   }
 
+  const stripe = new Stripe(stripeSecretKey);
+
   try {
-    const { items, customerEmail } = req.body || {};
+    let body = req.body;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {}
+    }
+    const { items, customerEmail } = body || {};
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'カートに商品が入っていません。' });
@@ -37,61 +45,42 @@ export default async function handler(req, res) {
     const host = req.headers['x-forwarded-host'] || req.headers.host || 'infil-design.vercel.app';
     const origin = req.headers.origin || `${protocol}://${host}`;
 
-    // Build URL-encoded form data for Stripe Checkout API
-    const params = new URLSearchParams();
-    params.append('mode', 'payment');
-    params.append('payment_method_types[0]', 'card');
-    
-    // Japanese address collection
-    params.append('shipping_address_collection[allowed_countries][0]', 'JP');
-    params.append('billing_address_collection', 'auto');
-    params.append('phone_number_collection[enabled]', 'true');
-
-    // Customer email if provided
-    if (customerEmail) {
-      params.append('customer_email', customerEmail);
-    }
-
-    // Success & Cancel URLs
-    params.append('success_url', `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`);
-    params.append('cancel_url', `${origin}/cancel.html`);
-
-    // Line Items
-    items.forEach((item, index) => {
+    // Format line items using Stripe Official API schema
+    const lineItems = items.map(item => {
       const quantity = Math.max(1, parseInt(item.quantity, 10) || 1);
       const unitAmount = Math.round(Number(item.price) || 0);
       const name = item.name || 'INFILL 3Dプリント製品';
       const description = item.subtitle || (item.categoryName ? `${item.categoryName}` : '美容師・理容師向け専用ロッドスタンド');
 
-      params.append(`line_items[${index}][price_data][currency]`, 'jpy');
-      params.append(`line_items[${index}][price_data][product_data][name]`, name);
-      params.append(`line_items[${index}][price_data][product_data][description]`, description);
-      params.append(`line_items[${index}][price_data][unit_amount]`, unitAmount.toString());
-      params.append(`line_items[${index}][quantity]`, quantity.toString());
+      return {
+        price_data: {
+          currency: 'jpy',
+          product_data: {
+            name: name,
+            description: description
+          },
+          unit_amount: unitAmount
+        },
+        quantity: quantity
+      };
     });
 
-    // Call Stripe API
-    const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${stripeSecretKey}`,
-        'Content-Type': 'application/x-www-form-urlencoded'
+    // Create Checkout Session
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items: lineItems,
+      shipping_address_collection: {
+        allowed_countries: ['JP']
       },
-      body: params.toString()
+      phone_number_collection: {
+        enabled: true
+      },
+      billing_address_collection: 'auto',
+      customer_email: customerEmail || undefined,
+      success_url: `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/cancel.html`
     });
 
-    const session = await stripeResponse.json();
-
-    if (!stripeResponse.ok) {
-      console.error('Stripe API Error:', session);
-      return res.status(stripeResponse.status).json({
-        error: 'STRIPE_API_ERROR',
-        message: session.error?.message || 'Stripe決済セッションの作成に失敗しました。',
-        details: session.error
-      });
-    }
-
-    // Return the Checkout URL
     return res.status(200).json({
       id: session.id,
       url: session.url
@@ -100,8 +89,9 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('Server error creating checkout session:', err);
     return res.status(500).json({
-      error: 'SERVER_ERROR',
-      message: 'サーバー内部エラーが発生しました。時間をおいて再試行してください。'
+      error: 'STRIPE_ERROR',
+      message: err.message || '決済セッションの作成中にエラーが発生しました。',
+      details: err.raw || err
     });
   }
 }
