@@ -12,8 +12,8 @@ const FALLBACK_PRODUCTS = [
     "category": "winding-rod",
     "categoryName": "ワインディング・ロッド",
     "price": 3600,
-    "stock": 0,
-    "status": "preparing",
+    "stock": 10,
+    "status": "in_stock",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
@@ -60,8 +60,8 @@ const FALLBACK_PRODUCTS = [
     "category": "winding-rod",
     "categoryName": "ワインディング・ロッド",
     "price": 3600,
-    "stock": 0,
-    "status": "preparing",
+    "stock": 10,
+    "status": "in_stock",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
@@ -113,8 +113,8 @@ const FALLBACK_PRODUCTS = [
     "category": "winding-rod",
     "categoryName": "ワインディング・ロッド",
     "price": 3600,
-    "stock": 0,
-    "status": "preparing",
+    "stock": 10,
+    "status": "in_stock",
     "featured": true,
     "color": "Matte Pure White（マットピュアホワイト）",
     "material": "高密度バイオPLA（植物由来生分解性プラスチック）",
@@ -196,7 +196,7 @@ class LittStoreApp {
   // 1. Data Management
   async loadProducts() {
     try {
-      const response = await fetch('js/products.json');
+      const response = await fetch('js/products.json?v=' + Date.now());
       if (!response.ok) throw new Error('Fetch failed');
       this.products = await response.json();
     } catch (e) {
@@ -210,14 +210,23 @@ class LittStoreApp {
       try {
         const stockMap = JSON.parse(localStock);
         this.products.forEach(p => {
-          if (stockMap[p.id] !== undefined) {
+          if (stockMap[p.id] !== undefined && stockMap[p.id] > 0) {
             p.stock = stockMap[p.id];
+          } else if (p.status === 'in_stock' && p.stock <= 0) {
+            p.stock = 10;
           }
         });
       } catch (err) {
         console.error(err);
       }
     }
+
+    // Ensure all in_stock products have available stock
+    this.products.forEach(p => {
+      if (p.status === 'in_stock' && (!p.stock || p.stock <= 0)) {
+        p.stock = 10;
+      }
+    });
   }
 
   saveStockOverride() {
