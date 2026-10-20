@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
-  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="css/style.css?v=20261004c" />
 </head>
 <body>
 
@@ -73,14 +73,18 @@
           メインストリームが見落とした「隙間（ニッチ）」を埋めるため、合理的で洗練されたツールデザインを提供します。
         </p>
         <div class="hero-cta-group">
-          <a href="#productsCatalog" class="btn-primary">
-            <span>製品ラインナップを見る</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+          <button type="button" class="btn-hero-waitlist" onclick="window.storeApp.openWaitlistModal(event)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
             </svg>
+            <span>入荷待ち（販売開始通知）を登録</span>
+          </button>
+          <a href="#productsCatalog" class="btn-secondary" style="border: 1px solid var(--border-medium); background: rgba(255,255,255,0.9);">
+            <span>製品を見る</span>
           </a>
           <a href="story.html" class="btn-secondary" style="border: 1px solid var(--border-light); background: rgba(255,255,255,0.8); backdrop-filter: blur(4px);">
-            <span>ブランドストーリーを読む</span>
+            <span>ブランドストーリー</span>
           </a>
         </div>
       </div>
@@ -172,6 +176,19 @@
         <span class="section-label">Products &amp; Objects</span>
         <h2 class="section-title">オリジナル製品一覧</h2>
         <p class="section-lead">写真をクリックすると、様々な角度のアングル写真や3D造形スペック・注意事項をご確認いただけます。</p>
+      </div>
+
+      <!-- Waitlist Notice Banner -->
+      <div style="background: #f8fafc; border: 1px solid var(--border-light); border-left: 4px solid #0f172a; padding: 14px 20px; border-radius: var(--radius-sm); margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span style="font-size: 0.88rem; color: var(--text-primary); font-weight: 500;">
+            現在、全製品は<strong>【発売準備中・入荷待ち】</strong>です。各商品の<strong>「入荷待ち・通知を受け取る」</strong>ボタンより販売開始メールをご登録いただけます。
+          </span>
+        </div>
+        <button type="button" class="btn-hero-waitlist" style="padding: 8px 16px; font-size: 0.82rem;" onclick="window.storeApp.openWaitlistModal(event)">
+          入荷待ちメールを登録する
+        </button>
       </div>
 
       <!-- Toolbar: Categories and Sorting -->
@@ -335,6 +352,111 @@
               カゴに追加する
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Restock / Launch Notification Waitlist Modal -->
+  <div class="modal-backdrop" id="waitlistModal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle">
+    <div class="modal-container waitlist-modal-container">
+      <button type="button" class="modal-close-btn" id="btnCloseWaitlist" aria-label="お知らせ登録を閉じる">✕</button>
+      
+      <div class="waitlist-modal-content">
+        <!-- Header -->
+        <div class="waitlist-modal-header">
+          <div class="waitlist-icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <h3 class="waitlist-modal-title" id="waitlistModalTitle">販売開始・入荷お知らせメール登録</h3>
+          <p class="waitlist-modal-desc" id="waitlistModalDesc">
+            販売開始や在庫入荷の準備が整い次第、ご登録のメールアドレスへ優先的にお知らせをお届けいたします。
+          </p>
+        </div>
+
+        <!-- Selected Product Preview -->
+        <div class="waitlist-product-card" id="waitlistProductCard">
+          <div class="waitlist-product-thumb">
+            <img id="waitlistProductImg" src="" alt="商品写真" />
+          </div>
+          <div class="waitlist-product-details">
+            <span class="waitlist-product-tag" id="waitlistProductTag">ワインディング・ロッド</span>
+            <h4 class="waitlist-product-name" id="waitlistProductName">商品名</h4>
+            <div class="waitlist-product-price-row">
+              <span class="waitlist-product-price" id="waitlistProductPrice">¥3,600</span>
+              <span class="waitlist-product-tax">（税込）</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signup Form -->
+        <form id="waitlistForm" onsubmit="window.storeApp.handleWaitlistSubmit(event)">
+          <input type="hidden" id="waitlistProductId" value="" />
+          
+          <div class="form-group">
+            <label for="waitlistEmail" class="form-label">
+              メールアドレス <span class="badge-req">必須</span>
+            </label>
+            <input 
+              type="email" 
+              id="waitlistEmail" 
+              class="form-input" 
+              placeholder="example@salon-sample.jp" 
+              required 
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="waitlistName" class="form-label">
+              お名前 <span class="badge-opt">任意</span>
+            </label>
+            <input 
+              type="text" 
+              id="waitlistName" 
+              class="form-input" 
+              placeholder="例：山田 太郎" 
+              autocomplete="off"
+            />
+          </div>
+
+          <p class="waitlist-note">
+            ※お知らせメール以外の目的で利用することはございません。<br>
+            ※本登録は購入や取り置きを確約するものではございません。
+          </p>
+
+          <div id="waitlistFormError" class="waitlist-form-error" style="display:none;"></div>
+
+          <button type="submit" class="btn-waitlist-submit" id="btnWaitlistSubmit">
+            <span class="btn-text">お知らせメールを登録する</span>
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Success Message View -->
+        <div class="waitlist-success-view" id="waitlistSuccessView" style="display: none;">
+          <div class="waitlist-success-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h4 class="waitlist-success-title">登録を受け付けました</h4>
+          <p class="waitlist-success-desc">
+            販売開始・入荷のご案内は、ご登録いただいた<br>
+            <strong id="waitlistSuccessEmail"></strong> 宛にお送りいたします。
+          </p>
+          <div class="waitlist-success-admin-note">
+            販売開始の準備が整い次第、優先的にご案内メールをお送りいたします。
+          </div>
+          <button type="button" class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="window.storeApp.closeWaitlistModal()">
+            完了して閉じる
+          </button>
         </div>
       </div>
     </div>
@@ -690,6 +812,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=20261004d"></script>
 </body>
 </html>

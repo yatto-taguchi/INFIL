@@ -2006,4 +2006,364 @@ button {
   margin-top: 10px;
 }
 
+/* ==========================================================================
+   Restock / Launch Waitlist Notification Styles
+   ========================================================================== */
+
+/* Card Waitlist Button */
+.btn-notify-waitlist {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid #0f172a;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+}
+
+.btn-notify-waitlist svg {
+  color: #fbbf24;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.btn-notify-waitlist:hover {
+  background: #1e293b;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+}
+
+.btn-notify-waitlist:hover svg {
+  transform: rotate(15deg) scale(1.15);
+}
+
+/* Hero Section Waitlist CTA Button */
+.btn-hero-waitlist {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  background: #0f172a;
+  color: #ffffff !important;
+  border: 1px solid #0f172a;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+.btn-hero-waitlist svg {
+  color: #fbbf24;
+}
+
+.btn-hero-waitlist:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
+}
+
+/* Detail Modal Waitlist Button */
+.btn-detail-waitlist {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid #0f172a;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
+}
+
+.btn-detail-waitlist:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
+}
+
+/* Waitlist Modal Container */
+.waitlist-modal-container {
+  max-width: 480px;
+  width: 90%;
+  padding: 32px 28px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.waitlist-modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.waitlist-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.waitlist-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.waitlist-modal-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Product Mini Preview Card */
+.waitlist-product-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.waitlist-product-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+}
+
+.waitlist-product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.waitlist-product-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.waitlist-product-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.waitlist-product-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.waitlist-product-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.waitlist-product-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.waitlist-product-tax {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Form Styles */
+.waitlist-modal-content .form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.waitlist-modal-content .form-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.badge-req {
+  font-size: 0.68rem;
+  background: #ef4444;
+  color: #ffffff;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.badge-opt {
+  font-size: 0.68rem;
+  background: #e2e8f0;
+  color: #64748b;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.waitlist-modal-content .form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  background: #ffffff;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.waitlist-modal-content .form-input:focus {
+  outline: none;
+  border-color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+}
+
+.waitlist-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 14px 0 18px 0;
+  text-align: left;
+}
+
+.waitlist-form-error {
+  padding: 8px 12px;
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #ef4444;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+/* Submit Button */
+.btn-waitlist-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.15);
+}
+
+.btn-waitlist-submit:hover:not(:disabled) {
+  background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.btn-waitlist-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Success View */
+.waitlist-success-view {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.waitlist-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  color: #059669;
+  margin-bottom: 16px;
+}
+
+.waitlist-success-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.waitlist-success-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.waitlist-success-admin-note {
+  font-size: 0.75rem;
+  color: #059669;
+  background: #f0fdf4;
+  border: 1px dashed #bbf7d0;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-top: 4px;
+}
+
+
 

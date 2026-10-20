@@ -85,19 +85,9 @@ const FALLBACK_PRODUCTS = [
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-design-stand-2.jpg?v=1",
-        "label": "サロン使用シーン（オレンジロング×15本＆コーム）",
-        "angle": "Salon Scene"
-      },
-      {
         "url": "assets/images/item-design-stand-3.jpg?v=1",
         "label": "上面・15ホール整列マトリクス配置",
         "angle": "Top Grid"
-      },
-      {
-        "url": "assets/images/item-design-stand-4.jpg?v=1",
-        "label": "実物スタジオフォト",
-        "angle": "Real Shot"
       }
     ],
     "video": {
@@ -370,11 +360,17 @@ class LittStoreApp {
       });
     }
 
-    // Add to Cart from Detail
+    // Add to Cart or Open Waitlist from Detail
     const btnDetailAdd = document.getElementById('btnDetailAddToCart');
     if (btnDetailAdd) {
-      btnDetailAdd.addEventListener('click', () => {
+      btnDetailAdd.addEventListener('click', (e) => {
         if (this.currentDetailProduct) {
+          const isPreparing = this.currentDetailProduct.status === 'preparing' || this.currentDetailProduct.isPreparing;
+          const isSoldOut = !isPreparing && this.currentDetailProduct.stock <= 0;
+          if (isPreparing || isSoldOut) {
+            this.openWaitlistModal(e, this.currentDetailProduct.id);
+            return;
+          }
           this.addToCart(this.currentDetailProduct.id, this.detailQuantity);
           this.closeDetailModal();
           this.openCart();
@@ -485,6 +481,18 @@ class LittStoreApp {
       });
     }
 
+    // Waitlist Modal Controls
+    const waitlistModal = document.getElementById('waitlistModal');
+    const closeWaitlistBtn = document.getElementById('btnCloseWaitlist');
+    if (closeWaitlistBtn) {
+      closeWaitlistBtn.addEventListener('click', () => this.closeWaitlistModal());
+    }
+    if (waitlistModal) {
+      waitlistModal.addEventListener('click', (e) => {
+        if (e.target === waitlistModal) this.closeWaitlistModal();
+      });
+    }
+
     // Keyboard ESC to close any modal
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -493,6 +501,7 @@ class LittStoreApp {
         this.closeCheckoutModal();
         this.closeSuccessModal();
         this.closeAuthModal();
+        this.closeWaitlistModal();
       }
     });
 
@@ -560,14 +569,25 @@ class LittStoreApp {
                 <span class="price-label">税込・送料無料ライン対象</span>
                 <span class="price-amount">${product.price.toLocaleString()}</span>
               </div>
-              <button 
-                type="button" 
-                class="btn-add-cart" 
-                ${isPreparing || isSoldOut ? 'disabled' : ''} 
-                onclick="window.storeApp.handleCardAddToCart(event, '${product.id}')"
-              >
-                ${isPreparing ? '準備中' : (isSoldOut ? '売り切れ' : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> カゴへ追加')}
-              </button>
+              ${(isPreparing || isSoldOut) ? `
+                <button 
+                  type="button" 
+                  class="btn-notify-waitlist" 
+                  onclick="window.storeApp.openWaitlistModal(event, '${product.id}')"
+                  title="入荷待ち（販売開始時にお知らせメールを受け取る）"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  <span>入荷待ち・通知を受け取る</span>
+                </button>
+              ` : `
+                <button 
+                  type="button" 
+                  class="btn-add-cart" 
+                  onclick="window.storeApp.handleCardAddToCart(event, '${product.id}')"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> カゴへ追加
+                </button>
+              `}
             </div>
           </div>
         </article>
@@ -674,15 +694,191 @@ class LittStoreApp {
     btnMinus.disabled = isDisabled || this.detailQuantity <= 1;
     btnPlus.disabled = isDisabled || this.detailQuantity >= maxStock;
 
-    if (isPreparing) {
-      btnAdd.disabled = true;
-      btnAdd.textContent = 'ただいま準備中です';
-    } else if (isSoldOut) {
-      btnAdd.disabled = true;
-      btnAdd.textContent = '現在売り切れです';
+    if (isPreparing || isSoldOut) {
+      btnAdd.disabled = false;
+      btnAdd.className = 'btn-detail-add btn-detail-waitlist';
+      btnAdd.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span>入荷待ち・販売開始お知らせメールを受け取る</span>
+      `;
     } else {
       btnAdd.disabled = false;
+      btnAdd.className = 'btn-detail-add';
       btnAdd.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> カゴに追加する (¥${(this.currentDetailProduct.price * this.detailQuantity).toLocaleString()})`;
+    }
+  }
+
+  // 4.5 Restock & Launch Notification Modal Handlers
+  openWaitlistModal(e, productId) {
+    if (e && e.stopPropagation) {
+      e.stopPropagation();
+    }
+    const targetId = productId || (this.products && this.products[0]?.id) || 'ld-005';
+    const product = this.products.find(p => p.id === targetId) || this.products[0];
+    if (!product) return;
+
+    this.currentWaitlistProduct = product;
+
+    // Fill Product Info into Modal
+    const prodIdInput = document.getElementById('waitlistProductId');
+    const prodImg = document.getElementById('waitlistProductImg');
+    const prodTag = document.getElementById('waitlistProductTag');
+    const prodName = document.getElementById('waitlistProductName');
+    const prodPrice = document.getElementById('waitlistProductPrice');
+    const modalTitle = document.getElementById('waitlistModalTitle');
+    const modalDesc = document.getElementById('waitlistModalDesc');
+
+    if (prodIdInput) prodIdInput.value = product.id;
+    if (prodImg) prodImg.src = product.images[0]?.url || 'assets/images/item-planter-1.jpg';
+    if (prodTag) prodTag.textContent = product.categoryName;
+    if (prodName) prodName.textContent = product.name;
+    if (prodPrice) prodPrice.textContent = `¥${product.price.toLocaleString()}`;
+
+    const isPreparing = product.status === 'preparing' || product.isPreparing;
+    if (modalTitle) {
+      modalTitle.textContent = isPreparing ? '販売開始お知らせメール登録' : '再入荷お知らせメール登録';
+    }
+    if (modalDesc) {
+      modalDesc.textContent = isPreparing
+        ? '販売開始の準備が整い次第、ご登録のメールアドレスへ優先的にお知らせをお届けいたします。'
+        : '商品の再入荷・在庫追加があり次第、ご登録のメールアドレスへ優先的にお知らせをお届けいたします。';
+    }
+
+    // Reset Form view state
+    const form = document.getElementById('waitlistForm');
+    const successView = document.getElementById('waitlistSuccessView');
+    const errBox = document.getElementById('waitlistFormError');
+    const emailInput = document.getElementById('waitlistEmail');
+    const nameInput = document.getElementById('waitlistName');
+    const btnSubmit = document.getElementById('btnWaitlistSubmit');
+
+    if (form) form.style.display = 'block';
+    if (successView) successView.style.display = 'none';
+    if (errBox) {
+      errBox.style.display = 'none';
+      errBox.textContent = '';
+    }
+    if (btnSubmit) {
+      btnSubmit.disabled = false;
+      btnSubmit.innerHTML = `
+        <span class="btn-text">お知らせメールを登録する</span>
+        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      `;
+    }
+
+    // Ensure inputs are completely empty on open (no pre-filled data)
+    if (emailInput) emailInput.value = '';
+    if (nameInput) nameInput.value = '';
+
+    // Show modal
+    const modal = document.getElementById('waitlistModal');
+    if (modal) {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  closeWaitlistModal() {
+    const modal = document.getElementById('waitlistModal');
+    if (modal) {
+      modal.classList.remove('open');
+      const detailModal = document.getElementById('productDetailModal');
+      if (!detailModal || !detailModal.classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  async handleWaitlistSubmit(e) {
+    e.preventDefault();
+    if (!this.currentWaitlistProduct) return;
+
+    const emailInput = document.getElementById('waitlistEmail');
+    const nameInput = document.getElementById('waitlistName');
+    const errBox = document.getElementById('waitlistFormError');
+    const btnSubmit = document.getElementById('btnWaitlistSubmit');
+
+    const email = emailInput ? emailInput.value.trim() : '';
+    const customerName = nameInput ? nameInput.value.trim() : '';
+
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      if (errBox) {
+        errBox.textContent = '有効なメールアドレスを入力してください。';
+        errBox.style.display = 'block';
+      }
+      return;
+    }
+
+    if (errBox) errBox.style.display = 'none';
+
+    // Show spinner/progress
+    if (btnSubmit) {
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `
+        <span class="btn-text">登録を受け付け中...</span>
+      `;
+    }
+
+    const payload = {
+      productId: this.currentWaitlistProduct.id,
+      productName: this.currentWaitlistProduct.name,
+      email: email,
+      customerName: customerName,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      // Send to Vercel Serverless Function
+      try {
+        await fetch('/api/notify-signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (networkErr) {
+        console.warn('API fetch notice (fallback mode):', networkErr);
+      }
+
+      // Store in localStorage for audit and history
+      try {
+        const stored = JSON.parse(localStorage.getItem('litt_waitlist_signups') || '[]');
+        stored.push(payload);
+        localStorage.setItem('litt_waitlist_signups', JSON.stringify(stored));
+      } catch (storageErr) {
+        console.warn('localStorage error:', storageErr);
+      }
+
+      // Display success view
+      const form = document.getElementById('waitlistForm');
+      const successView = document.getElementById('waitlistSuccessView');
+      const successEmailSpan = document.getElementById('waitlistSuccessEmail');
+
+      if (form) form.style.display = 'none';
+      if (successView) successView.style.display = 'block';
+      if (successEmailSpan) successEmailSpan.textContent = email;
+
+    } catch (err) {
+      console.error('Waitlist submit error:', err);
+      if (errBox) {
+        errBox.textContent = 'エラーが発生しました。時間をおいて再度お試しください。';
+        errBox.style.display = 'block';
+      }
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = `
+          <span class="btn-text">お知らせメールを登録する</span>
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        `;
+      }
     }
   }
 

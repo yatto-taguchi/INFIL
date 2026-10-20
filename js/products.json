@@ -79,19 +79,9 @@
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-design-stand-2.jpg?v=1",
-        "label": "サロン使用シーン（オレンジロング×15本＆コーム）",
-        "angle": "Salon Scene"
-      },
-      {
         "url": "assets/images/item-design-stand-3.jpg?v=1",
         "label": "上面・15ホール整列マトリクス配置",
         "angle": "Top Grid"
-      },
-      {
-        "url": "assets/images/item-design-stand-4.jpg?v=1",
-        "label": "実物スタジオフォト",
-        "angle": "Real Shot"
       }
     ],
     "video": {
