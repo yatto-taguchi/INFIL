@@ -37,7 +37,7 @@ const FALLBACK_PRODUCTS = [
         "angle": "Perspective"
       },
       {
-        "url": "assets/images/item-matrix-2.jpg?v=11",
+        "url": "assets/images/item-matrix-2.jpg?v=12",
         "label": "ロッド収納イメージ（オレンジのロング×15本）",
         "angle": "With Rods"
       },
@@ -83,6 +83,11 @@ const FALLBACK_PRODUCTS = [
         "url": "assets/images/item-design-stand-1.jpg?v=1",
         "label": "正面・パースペクティブビュー",
         "angle": "Perspective"
+      },
+      {
+        "url": "assets/images/item-design-stand-2.jpg?v=2",
+        "label": "ロッド収納イメージ（オレンジのロング×15本）",
+        "angle": "With Rods"
       },
       {
         "url": "assets/images/item-design-stand-3.jpg?v=1",
